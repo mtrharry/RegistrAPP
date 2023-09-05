@@ -1,34 +1,18 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Login
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <h1> RegistrAPP </h1>
-
-  <ion-list >
-    <ion-item>
-      <ion-input type="text"
-      labelPlacement="floating" 
-      value="" maxlength="8" placeholder="Ingrese usuario" requiered>
-        <div slot="label">Usuario <ion-text></ion-text></div>
-      </ion-input>
-    </ion-item>
-  </ion-list>
-
-  <ion-list>
-    <ion-item>
-      <ion-input type="password" 
-      labelPlacement="floating"  onkeypress='return event.charCode >= 48 && event.charCode <= 57'maxlength="4" 
-      placeholder="Ingrese contraseña" requiered>
-        <div slot="label">Contraseña <ion-text></ion-text></div>
-      </ion-input>
-    </ion-item>
-  </ion-list>
-
-  <ion-button >Ingresar</ion-button>
-  <ion-button >Olvide mi contraseña</ion-button>
-</ion-content>
+    <ion-toolbar>
+      <ion-title>
+        RegistrAPP
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  
+  <ion-content [fullscreen]="true">
+    <div class="titulo">
+      <h1>Bienvenido</h1>
+      </div>
+      
+      <p>Usuario: {{ user }}</p>
+  
+  </ion-content>
+  
