@@ -1,35 +1,43 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Logo duoc</ion-title>
+    <ion-title>RegistrAPP</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content >
-
+<ion-content class="central">
+  <div class="content-container">
   
   
-    <h1 class="skeletonApp">RegistrAPP</h1>
-    
-    <h1 class="Bienvenido">Bienvenido</h1>
     
     
-     
+    <h1 class="Bienvenido">Login</h1>
+    
+    <!-- input de usuario -->
+    <div class="input"> 
+      <ion-item class="inputuser">
+        <!-- guardar variable user en parametro -->
         <ion-input type="text" [(ngModel)]="user.usuario"
-        labelPlacement="floating" 
-        value="" placeholder="Ingrese usuario" requiered>
-          <div slot="label">Usuario <ion-text></ion-text></div>
+            labelPlacement="floating" 
+            value="" placeholder="Ingrese usuario" requiered>
+            <div slot="label">Usuario <ion-text></ion-text></div>
+    
+      <!-- input de contraseña -->   
         </ion-input>
- 
-
+      </ion-item>
+      <ion-item class="inputcontra">
+        <!-- guardar variable password en parametro -->
         <ion-input type="password" [(ngModel)]="user.password"
         labelPlacement="floating"  
         placeholder="Ingrese contraseña" requiered>
           <div slot="label">Contraseña <ion-text></ion-text></div>
         </ion-input>
-  
+      </ion-item>
+      
+    </div>    
  
-  
-   <ion-button (click)="goToHome()">Ingresar</ion-button>
-    <ion-button >Olvide mi contraseña</ion-button>
+  <!-- botones -->
+   <ion-button class="btingrar" (click)="goToHome()">Ingresar</ion-button>
+    <ion-button class="btolvide" (click)="goToRecuperar()">Olvide mi contraseña</ion-button>
 
+  </div>
 </ion-content>

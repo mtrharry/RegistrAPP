@@ -1,0 +1,51 @@
+
+/* cental de ion-content */
+.central {
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* contenedor de container */
+.content-container {
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  margin: auto; 
+  border: 2px solid #007aff;
+  border-radius: 10%;
+  padding: 20px;
+  padding: 2em;
+  margin-top:5%;
+}
+
+/* inputs */
+.input {
+  margin-top: 20px; 
+ 
+}
+
+/* input de user */
+.inputuser{
+  background-color: aliceblue;
+
+}
+
+/* boton de ingresar*/
+.btingrar {
+  margin-top: 20px; 
+  background-color: #007aff; 
+  color: white;
+  
+}
+
+/* contenedor de recuperacion */
+.btolvide {
+  margin-top: 20px; 
+  background-color: #007aff; 
+  color: white;
+}
+
+

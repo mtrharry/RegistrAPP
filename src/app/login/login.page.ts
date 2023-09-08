@@ -16,8 +16,15 @@ export class LoginPage implements OnInit {
     constructor(private navCtrl: NavController ) {
       
     }
+    // funcion ir a pagina home
     goToHome(){
       this.navCtrl.navigateForward('/home/' + this.user.usuario);
+      
+    }  
+
+    // funcion ir a pagina de recuperacion
+    goToRecuperar(){
+      this.navCtrl.navigateForward('/recuperar');
       
     }  
     
