@@ -14,7 +14,7 @@ const routes: Routes = [
 
   // home usa parametro user
   {
-    path: 'home/:user',
+    path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {

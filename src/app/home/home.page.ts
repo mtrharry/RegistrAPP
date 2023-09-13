@@ -9,14 +9,20 @@ import { Router} from '@angular/router';
 })
 export class HomePage implements OnInit {
   //inicializacion de user 
-  user: string | null = null; 
+  user: any;
+  state: any; 
 
-  //para capturar el valor del parámetro 'user' de la URL y lo almacena en la variable this.user
-  constructor(private route: ActivatedRoute) {   
+  //está utilizando el operador ?.. Esto se conoce como "operador de encadenamiento opcional". 
+  //Lo que hace es verificar si this.router.getCurrentNavigation() devuelve un valor distinto de null o 
+  constructor(private activeroute: ActivatedRoute, private router: Router) {   
+    this.activeroute.queryParams.subscribe(params => {
+      this.state = this.router.getCurrentNavigation()?.extras.state;
+      this.user=this.state.user
+      console.log(this.user);
+    })
   }
-  // Utiliza el método get('user') en el mapa de parámetros para obtener el valor del parámetro llamado 'user' Asigna el valor del parámetro 'user'
-  // en el componente user
+  
   ngOnInit() {
-    this.user = this.route.snapshot.paramMap.get('user');
+    
   }
 }

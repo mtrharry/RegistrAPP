@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras} from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -13,18 +12,17 @@ export class LoginPage implements OnInit {
     password:""
     };
  
-    constructor(private navCtrl: NavController ) {
-      
-    }
+    constructor(private router: Router) {  }
     // funcion ir a pagina home
     goToHome(){
-      this.navCtrl.navigateForward('/home/' + this.user.usuario);
-      
+      let navigationExtras: NavigationExtras = {state: {user: this.user}};
+
+      this.router.navigate(['/home'],navigationExtras);
     }  
 
     // funcion ir a pagina de recuperacion
     goToRecuperar(){
-      this.navCtrl.navigateForward('/recuperar');
+      this.router.navigate(['/recupera']);
       
     }  
     
