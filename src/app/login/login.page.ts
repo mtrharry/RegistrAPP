@@ -22,7 +22,7 @@ export class LoginPage implements OnInit {
 
     // funcion ir a pagina de recuperacion
     goToRecuperar(){
-      this.router.navigate(['/recupera']);
+      this.router.navigate(['/recuperar']);
       
     }  
     
