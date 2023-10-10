@@ -14,6 +14,14 @@
       </div>
       
       <p>Usuario: {{ user.usuario }}</p>
+      <div>
+        <ion-button (click)="generarCodigoQR()">Generar Código QR</ion-button>
+        <div *ngIf="codigoQR">
+          <img [src]="codigoQR" alt="Código QR generado">
+        </div>
+      </div>
+
     </div>
+    
   </ion-content>
   

@@ -24,7 +24,7 @@ const routes: Routes = [
     loadChildren: () => import('./recuperar/recuperar.module').then( m => m.RecuperarPageModule)
   },
   {
-    path: '**',
+    path: '**                        b/n       /',
     loadChildren: () => import('./notfound/notfound.module').then( m => m.NotfoundPageModule)
   },
   
