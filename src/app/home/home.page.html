@@ -2,7 +2,15 @@
     <ion-toolbar>
       <ion-title>
         RegistrAPP
+        
+          <button mat-button [matMenuTriggerFor]="menu" class="perfil">Perfil</button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>Editar perfil</button>
+            <button mat-menu-item>Cerrar sesion</button>
+          </mat-menu>
+        
       </ion-title>
+      
     </ion-toolbar>
   </ion-header>
   
@@ -12,14 +20,15 @@
     <div class="titulo">
       <h1>Bienvenido</h1>
       </div>
-      
       <p>Usuario: {{ user.usuario }}</p>
-      <div>
-        <ion-button (click)="generarCodigoQR()">Generar Código QR</ion-button>
-        <div *ngIf="codigoQR">
-          <img [src]="codigoQR" alt="Código QR generado">
-        </div>
+      <p>Cursos</p>
+      <div class="spinner-container">
+        <mat-spinner></mat-spinner>
       </div>
+
+      
+
+
 
     </div>
     

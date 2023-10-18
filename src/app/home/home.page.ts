@@ -1,4 +1,5 @@
 import { Component,OnInit  } from '@angular/core';
+
 import { ActivatedRoute } from '@angular/router';
 import { Router} from '@angular/router';
 import { ApiService } from '../service/api.service';
@@ -7,13 +8,14 @@ import { ApiService } from '../service/api.service';
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
+  
 })
 export class HomePage implements OnInit {
   //inicializacion de user 
   user: any;
   state: any; 
   
-  codigoQR: string | null = null;
+  
 
   
   //está utilizando el operador ?.. Esto se conoce como "operador de encadenamiento opcional". 
@@ -26,14 +28,7 @@ export class HomePage implements OnInit {
     })
   }
 
-  generarCodigoQR() {
-    const texto = 'Hello world'; // Texto que deseas codificar en el código QR
-
-    this.apiService.createQRCode(texto).subscribe((data: Blob) => {
-      const imageUrl = URL.createObjectURL(data);
-      this.codigoQR = imageUrl; // Asigna la URL de la imagen a la variable
-    });
-  }
+  
   ngOnInit() {
     
   }
