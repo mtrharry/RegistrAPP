@@ -20,7 +20,10 @@
     <div class="titulo">
       <h1>Bienvenido</h1>
       </div>
-      <p>Usuario: {{ user.usuario }}</p>
+      <div *ngIf="user">
+        <p>Usuario: {{ user?.usuario }}</p>
+        <!-- Resto del contenido de la página home -->
+      </div>
       <p>Cursos</p>
       <div class="spinner-container">
         <mat-spinner></mat-spinner>
