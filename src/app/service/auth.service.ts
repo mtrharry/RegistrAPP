@@ -4,7 +4,6 @@ import { ApiService } from '../service/api.service';
 import { Storage } from '@ionic/storage-angular';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
