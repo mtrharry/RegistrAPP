@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras} from '@angular/router';
 import { ApiService } from '../service/api.service';
 import { Storage } from '@ionic/storage-angular';
+import { EmptyExpr } from '@angular/compiler';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -9,56 +10,59 @@ import { Storage } from '@ionic/storage-angular';
 })
 
 export class LoginPage implements OnInit {
+  logueado: any[] = [];
+  state=[];
   user={
     usuario:"",
     password:""
     };
  
-    recordarUsuario: boolean = false;
-    errorMensaje: string = "";
+
     constructor(private router: Router,private api: ApiService,private storage: Storage) {
-      // Llama al método create para crear la base de datos
-    this.storage.create().then(() => {
-      // El resto del constructor
-      this.recordarUsuario = this.recordarUsuario === true;
-      if (this.recordarUsuario) {
-        // Si se recuerda al usuario, cargar el nombre de usuario y contraseña guardados
-        this.storage.get('user').then((user) => {
-          this.user = user;
-        });
-      }
-    });
-    }
       
-      ngOnInit() {
-     
-      }
+    }
+    async ngOnInit() {
+    // Inicializa el almacenamiento
+    await this.storage.create();
+
+    // Verifica si hay datos de usuario almacenados
+    const storedUser = await this.storage.get('usuariologin');
+
+    if (storedUser) {
+      // Si hay datos de usuario almacenados, redirige directamente a la página de inicio
+      let navigationExtras: NavigationExtras = { state: { user: storedUser } };
+      this.router.navigate(['/home'], navigationExtras);
+    }
+  }
       
     // funcion ir a pagina home
     goToHome() {
-      this.api.getUsuario().subscribe(
-        (usuarios) => {
-          const usuario = usuarios.find((user) => user.nombreUsuario === this.user.usuario);
-          
-          if (usuario && usuario.Contraseña === this.user.password) {
-  
+      this.api.getUsuario().subscribe((usuarios) => {
+        const usuario = usuarios.find((user) => user.nombreUsuario === this.user.usuario);
+        
+        
+        if (usuario && usuario.Contraseña === this.user.password) {
+          // Guarda los datos de usuario en el almacenamiento
+          this.storage.set('usuariologin', this.user).then((data) => {
             let navigationExtras: NavigationExtras = { state: { user: this.user } };
             this.router.navigate(['/home'], navigationExtras);
-          } else {
-            this.errorMensaje = "Usuario o contraseña incorrectos"; 
-          }
-        },
-        
-      );
-  }
+          });
+        } else {
+          console.log('Credenciales incorrectas');
+        }
+      });
+    }
+   
+  
     
   
     // Función para ir a la página de recuperación
     goToRecuperar() {
       this.router.navigate(['/recuperar']);
     }
-  }
+
     
+}
 
   
 

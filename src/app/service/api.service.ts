@@ -17,4 +17,9 @@ export class ApiService {
     return this.http.get<any[]>(this.apiURL + '/lista_usuario')
     .pipe(retry(3));
   }
+  postUsuario(usuario: any): Observable<any> {
+    return this.http.post<any>(this.apiURL + '/crear_usuario', usuario)
+    .pipe(retry(3));
+  }
+  
 }
