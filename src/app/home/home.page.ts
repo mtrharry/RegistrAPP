@@ -1,7 +1,6 @@
 import { Component,OnInit  } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router} from '@angular/router';
-import { ApiService } from '../service/api.service';
 import { Storage } from '@ionic/storage-angular';
 
 @Component({
