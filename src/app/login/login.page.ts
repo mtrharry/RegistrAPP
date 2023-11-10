@@ -28,6 +28,27 @@ export class LoginPage implements OnInit {
     await this.storage.create();
     
     
+
+    this.storage.get('usuariologin').then((userData) => {
+      if (userData) {
+        // Hay datos almacenados, el usuario ha iniciado sesión anteriormente
+        this.logueado = true;
+        this.user.usuario = userData.usuario;
+        this.user.password = userData.password;
+        console.log('Usuario ya ha iniciado sesión:', userData);
+        console.log(this.user)
+
+        this.storage.set('usuariologin', this.user).then((data) => {
+            let navigationExtras: NavigationExtras = { state: { user: this.user } };
+            this.router.navigate(['/home'], navigationExtras);
+            
+          });
+      } else {
+        // No hay datos almacenados, el usuario no ha iniciado sesión
+        this.logueado = false;
+        console.log('Usuario no ha iniciado sesión');
+      }
+    });
     
   }
       
