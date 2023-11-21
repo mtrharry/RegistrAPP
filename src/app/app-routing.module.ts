@@ -24,9 +24,15 @@ const routes: Routes = [
     loadChildren: () => import('./recuperar/recuperar.module').then( m => m.RecuperarPageModule)
   },
   {
+    path: 'docente',
+    loadChildren: () => import('./docente/docente.module').then( m => m.DocentePageModule)
+  },
+
+  {
     path: '**',
     loadChildren: () => import('./notfound/notfound.module').then( m => m.NotfoundPageModule)
   },
+  
   
  
   

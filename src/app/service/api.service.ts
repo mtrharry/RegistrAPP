@@ -9,7 +9,7 @@ import { retry } from 'rxjs/internal/operators/retry';
 })
 
 export class ApiService {
-  apiURL = 'http://127.0.0.1:8000/api';
+  apiURL = 'https://11fxc72v-8000.brs.devtunnels.ms/api';
   constructor(private http: HttpClient) { }
 
   
@@ -17,9 +17,10 @@ export class ApiService {
     return this.http.get<any[]>(this.apiURL + '/lista_usuario')
     .pipe(retry(3));
   }
-  postUsuario(usuario: any): Observable<any> {
-    return this.http.post<any>(this.apiURL + '/crear_usuario', usuario)
-    .pipe(retry(3));
+
+  getAsignaturasDocente(idDocente: number): Observable<any> {
+    const url = `${this.apiURL}/asignaturas_docente/${idDocente}/`;
+    return this.http.get(url);
   }
   
 }

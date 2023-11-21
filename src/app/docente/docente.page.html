@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>docente</ion-title>
+    <button mat-menu-item (click)="cerrarSesion()">Cerrar sesion</button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="user">
+    <p>Usuario: {{ user?.idUsuario }}</p>
+    <!-- Resto del contenido de la página home -->
+  </div>
+  <div *ngIf="asignaturas.length > 0">
+    <h2>Asignaturas Asociadas</h2>
+    <ul>
+      <li *ngFor="let asignatura of asignaturas">
+        {{ asignatura.nombre }} - {{ asignatura.sigla }} - {{ asignatura.seccion }} <ion-button>Generar qr</ion-button>
+      </li>
+   
+    </ul>
+  </div>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">docente</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>
