@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
 import { ApiService } from '../service/api.service';
-
+import {
+  BarcodeScanner,
+  BarcodeFormat,
+  LensFacing,
+} from '@capacitor-mlkit/barcode-scanning';
 @Component({
   selector: 'app-docente',
   templateUrl: './docente.page.html',
@@ -28,6 +32,8 @@ export class DocentePage implements OnInit {
     });
   }
 
+
+  
   async ngOnInit() {
     // Inicializa el almacenamiento local
     await this.storage.create();
