@@ -9,13 +9,13 @@ import { retry } from 'rxjs/internal/operators/retry';
 })
 
 export class ApiService {
-  //apiURL = 'https://11fxc72v-8000.brs.devtunnels.ms/api';
-  apiURL = 'http://localhost:8000/api'
+  apiURL = 'https://11fxc72v-8000.brs.devtunnels.ms//api';
+  //apiURL = 'http://127.0.0.1:8000/api'
   constructor(private http: HttpClient) { }
 
   
   getUsuario(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiURL + '/lista_usuario')
+    return this.http.get<any[]>(this.apiURL + '/lista_usuario/')
     .pipe(retry(3));
   }
 

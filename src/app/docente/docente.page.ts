@@ -2,11 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
 import { ApiService } from '../service/api.service';
-import {
-  BarcodeScanner,
-  BarcodeFormat,
-  LensFacing,
-} from '@capacitor-mlkit/barcode-scanning';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-docente',
   templateUrl: './docente.page.html',
@@ -21,7 +18,8 @@ export class DocentePage implements OnInit {
     private activeroute: ActivatedRoute,
     private router: Router,
     private storage: Storage,
-    private api: ApiService
+    private api: ApiService,
+    private sanitizer: DomSanitizer
   ) {
     this.activeroute.queryParams.subscribe(params => {
       this.state = this.router.getCurrentNavigation()?.extras.state;
@@ -51,4 +49,20 @@ export class DocentePage implements OnInit {
       this.router.navigate(['/login']);
     });
   }
+  public myAngularxQrCode: string = '';
+  generarQR(asignatura: any) {
+    // Genera el código QR con los datos de la asignatura
+    const qrData = `${asignatura.nombre} - ${asignatura.sigla} - ${asignatura.seccion}`;
+    this.myAngularxQrCode = qrData;
+  
+    // Opcional: También puedes generar la URL del código QR
+    const qrCodeURL: SafeUrl = this.sanitizer.bypassSecurityTrustUrl(`data:image/png;base64,${this.myAngularxQrCode}`);
+    // Puedes utilizar qrCodeURL según tus necesidades (por ejemplo, para descargar el código QR).
+  
+    // Aquí puedes agregar lógica adicional, como enviar el código QR a la base de datos.
+  }
+
+
+
+  
 }

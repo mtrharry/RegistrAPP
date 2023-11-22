@@ -1,7 +1,12 @@
-import { Component,OnInit  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
+import {
+  BarcodeScanner,
+  BarcodeFormat,
+  LensFacing,
+} from '@capacitor-mlkit/barcode-scanning';
 
 @Component({
   selector: 'app-home',
@@ -9,25 +14,23 @@ import { Storage } from '@ionic/storage-angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  //inicializacion de user 
   user: any = {};
-  state: any; 
-  
-
-  //está utilizando el operador ?.. Esto se conoce como "operador de encadenamiento opcional". 
-  //Lo que hace es verificar si this.router.getCurrentNavigation() devuelve un valor distinto de null o 
-  constructor(private activeroute: ActivatedRoute, private router: Router,private storage: Storage ) {   
-    this.activeroute.queryParams.subscribe(params => {
+  state: any;
+  mostrarBotonConfirmar: boolean = false;
+  constructor(
+    private activeroute: ActivatedRoute,
+    private router: Router,
+    private storage: Storage
+  ) {
+    this.activeroute.queryParams.subscribe((params) => {
       this.state = this.router.getCurrentNavigation()?.extras.state;
-      this.user=this.state.user
-      
-    }) 
+      this.user = this.state.user;
+    });
   }
+
   async ngOnInit() {
     // Inicializa el almacenamiento local
     await this.storage.create();
-
-    // Resto del código de ngOnInit()
   }
 
   cerrarSesion() {
@@ -37,6 +40,39 @@ export class HomePage implements OnInit {
       this.router.navigate(['/login']);
     });
   }
+
+  async escanearCodigoQR() {
+    try {
+      // Instalar servicios de escaneo antes de escanear
+      this.instalarServiciosEscaneo();
   
+      // Ahora escanea el código QR
+      const result = await BarcodeScanner.scan();
+      console.log('Código escaneado:', result);
   
+      // Puedes procesar el resultado como desees.
+      // Por ejemplo, puedes almacenar el resultado en una variable o ejecutar alguna lógica específica.
+  
+      // Después de escanear, muestra el botón de confirmar asistencia
+      this.mostrarBotonConfirmar = true;
+    } catch (error) {
+      console.error('Error al escanear código QR:', error);
+    }
+  }
+
+  async instalarServiciosEscaneo() {
+    try {
+      // Instalar servicios de escaneo de Google
+      BarcodeScanner.installGoogleBarcodeScannerModule();
+      console.log('Servicios de escaneo instalados correctamente');
+    } catch (error) {
+      console.error('Error al instalar servicios de escaneo:', error);
+      throw error; // Propaga el error para que pueda ser manejado por la función llamadora
+    }
+  }
+  confirmarAsistencia() {
+    // Implementa la lógica de confirmación de asistencia aquí
+    console.log('Asistencia confirmada');
+    alert("presente")
+  }
 }

@@ -1,39 +1,38 @@
 <ion-header [translucent]="true">
-    <ion-toolbar>
-      <ion-title>
-        RegistrAPP
-        
-          <button mat-button [matMenuTriggerFor]="menu" class="perfil">Perfil</button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>Editar perfil</button>
-            <button mat-menu-item (click)="cerrarSesion()">Cerrar sesion</button>
-          </mat-menu>
-        
-      </ion-title>
-      
-    </ion-toolbar>
-  </ion-header>
-  
-  
-  <ion-content [fullscreen]="true" class="center-content">
-    <div class="content-container">
+  <ion-toolbar>
+    <ion-title>
+      RegistrAPP
+      <button mat-button [matMenuTriggerFor]="menu" class="perfil">Perfil</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Editar perfil</button>
+        <button mat-menu-item (click)="cerrarSesion()">Cerrar sesión</button>
+      </mat-menu>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="center-content">
+  <div class="content-container">
     <div class="titulo">
       <h1>Bienvenido</h1>
-      </div>
-      <div *ngIf="user">
-        <p>Usuario: {{ user?.idUsuario }}</p>
-        <!-- Resto del contenido de la página home -->
-      </div>
-      <p>Cursos</p>
-      <div class="spinner-container">
-        <mat-spinner></mat-spinner>
-      </div>
-
-      
-
-
-
     </div>
-    
-  </ion-content>
+    <div *ngIf="user">
+      <p>Usuario: {{ user?.idUsuario }}</p>
+      <!-- Resto del contenido de la página home -->
+    </div>
+    <p>Cursos</p>
+    <div class="spinner-container">
+      <mat-spinner></mat-spinner>
+    </div>
+
+    <!-- Agrega los botones para escanear y detener el escaneo -->
+      <div class="barcode-actions">
+        <ion-button ion-button (click)="escanearCodigoQR()">Escanear Código QR</ion-button>
+        
+        
+        
+      </div>
+      <ion-button ion-button *ngIf="mostrarBotonConfirmar" (click)="confirmarAsistencia()">Confirmar Asistencia</ion-button>
+    </div>
   
+</ion-content>
