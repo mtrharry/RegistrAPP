@@ -30,8 +30,6 @@ export class DocentePage implements OnInit {
     });
   }
 
-
-  
   async ngOnInit() {
     // Inicializa el almacenamiento local
     await this.storage.create();
@@ -49,20 +47,19 @@ export class DocentePage implements OnInit {
       this.router.navigate(['/login']);
     });
   }
+
   public myAngularxQrCode: string = '';
   generarQR(asignatura: any) {
-    // Genera el código QR con los datos de la asignatura
-    const qrData = `${asignatura.nombre} - ${asignatura.sigla} - ${asignatura.seccion}`;
+    // Genera el código QR con los datos de la asignatura y el correo electrónico
+    const qrData = `${asignatura.nombre} - ${asignatura.sigla} - ${asignatura.seccion} - ${this.user.email}`;
     this.myAngularxQrCode = qrData;
-  
+    console.log(this.myAngularxQrCode)
+
     // Opcional: También puedes generar la URL del código QR
     const qrCodeURL: SafeUrl = this.sanitizer.bypassSecurityTrustUrl(`data:image/png;base64,${this.myAngularxQrCode}`);
     // Puedes utilizar qrCodeURL según tus necesidades (por ejemplo, para descargar el código QR).
-  
+
     // Aquí puedes agregar lógica adicional, como enviar el código QR a la base de datos.
   }
-
-
-
-  
 }
+

@@ -9,7 +9,7 @@ import { retry } from 'rxjs/internal/operators/retry';
 })
 
 export class ApiService {
-  apiURL = 'https://11fxc72v-8000.brs.devtunnels.ms//api';
+  apiURL = 'https://11fxc72v-8000.brs.devtunnels.ms/api';
   //apiURL = 'http://127.0.0.1:8000/api'
   constructor(private http: HttpClient) { }
 
@@ -24,4 +24,8 @@ export class ApiService {
     return this.http.get(url);
   }
   
+  registrarAsistencia(data: any): Observable<any> {
+    const url = `${this.apiURL}/escanear_qr/`;
+    return this.http.post(url, data);
+  }
 }
