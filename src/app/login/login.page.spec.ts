@@ -4,6 +4,8 @@ import { LoginPage } from './login.page';
 describe('LoginPage', () => {
   let component: LoginPage;
   let fixture: ComponentFixture<LoginPage>;
+  let apiServiceSpy: jasmine.SpyObj<ApiService>;
+  let storageSpy: jasmine.SpyObj<Storage>;
 
   beforeEach(async(() => {
     fixture = TestBed.createComponent(LoginPage);
@@ -14,4 +16,6 @@ describe('LoginPage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
 });

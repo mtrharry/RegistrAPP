@@ -19,7 +19,9 @@ export class AccessGuard implements CanActivate {
       
       if (userData) {
         // Hay datos almacenados, el usuario ha iniciado sesión anteriormente
-        console.log('Usuario ha iniciado sesión:', userData);
+
+      
+        
         return true;
       } else {
         // No hay datos almacenados, el usuario no ha iniciado sesión
@@ -30,5 +32,3 @@ export class AccessGuard implements CanActivate {
     });
   }
 }
-
-

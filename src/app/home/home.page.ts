@@ -47,7 +47,7 @@ export class HomePage implements OnInit {
   
       // Ahora escanea el código QR
       this.result = await BarcodeScanner.scan();
-      console.log('Código escaneado:', this.result);
+      
   
       // Almacena la información del escaneo en una variable
       const { usuario, fecha, hora, asignatura, correoDocente } = this.obtenerAsignatura(this.result);
@@ -79,7 +79,7 @@ export class HomePage implements OnInit {
     try {
       // Instalar servicios de escaneo de Google
       BarcodeScanner.installGoogleBarcodeScannerModule();
-      console.log('Servicios de escaneo instalados correctamente');
+     
     } catch (error) {
       console.error('Error al instalar servicios de escaneo:', error);
       throw error; // Propaga el error para que pueda ser manejado por la función llamadora
@@ -130,7 +130,7 @@ mostrarInformacionEscaneo(informacionEscaneo: { usuario: string, fecha: string, 
   
   confirmarAsistencia() {
     // Implementa la lógica de confirmación de asistencia aquí
-    console.log('Asistencia confirmada');
+    
     
     // Verifica si result está definido antes de usarlo
     if (this.result) {
@@ -148,7 +148,7 @@ mostrarInformacionEscaneo(informacionEscaneo: { usuario: string, fecha: string, 
       this.apiService.registrarAsistencia(informacionEscaneo).subscribe(
         (response) => {
           // Maneja la respuesta del servidor si es necesario
-          console.log('Respuesta del servidor:', response);
+          
           alert('Asistencia registrada correctamente:');
         },
         (error) => {

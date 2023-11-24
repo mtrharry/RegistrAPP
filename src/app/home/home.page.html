@@ -1,13 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      RegistrAPP
-      <button mat-button [matMenuTriggerFor]="menu" class="perfil">Perfil</button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>Editar perfil</button>
-        <button mat-menu-item (click)="cerrarSesion()">Cerrar sesión</button>
-      </mat-menu>
-    </ion-title>
+    <ion-title>RegistrAPP-docente</ion-title>
+    <ion-buttons slot="end" class="ion-no-padding">
+      <ion-button class="botoncerrar" mat-menu-item (click)="cerrarSesion()">
+        Cerrar sesión
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -17,7 +15,7 @@
       <h1>Bienvenido</h1>
     </div>
     <div *ngIf="user">
-      <p>Usuario: {{ user?.idUsuario }}</p>
+      <p>Usuario: {{ user?.usuario }}</p>
       <!-- Resto del contenido de la página home -->
     </div>
     <p>Cursos</p>

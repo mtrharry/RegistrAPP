@@ -26,7 +26,7 @@ export class DocentePage implements OnInit {
       this.user = this.state.user;
     });
     this.api.getUsuario().subscribe((usuarios) => {
-      console.log('Lista de usuarios:', usuarios);
+     
     });
   }
 
@@ -53,7 +53,7 @@ export class DocentePage implements OnInit {
     // Genera el código QR con los datos de la asignatura y el correo electrónico
     const qrData = `${asignatura.nombre} - ${asignatura.sigla} - ${asignatura.seccion} - ${this.user.email}`;
     this.myAngularxQrCode = qrData;
-    console.log(this.myAngularxQrCode)
+    
 
     // Opcional: También puedes generar la URL del código QR
     const qrCodeURL: SafeUrl = this.sanitizer.bypassSecurityTrustUrl(`data:image/png;base64,${this.myAngularxQrCode}`);

@@ -17,6 +17,7 @@ export class LoginPage implements OnInit {
     usuario: "",
     password: "",
     email: "",
+    categoria: 0,
   };
 
   constructor(private router: Router, private api: ApiService, private storage: Storage) {
@@ -35,12 +36,16 @@ export class LoginPage implements OnInit {
         this.user.usuario = userData.usuario;
         this.user.password = userData.password;
         this.user.email = userData.email; 
-        console.log('Usuario ya ha iniciado sesión:', userData);
-        console.log(this.user);
+        this.user.categoria = userData.categoria;
+        
 
         this.storage.set('usuariologin', this.user).then((data) => {
           let navigationExtras: NavigationExtras = { state: { user: this.user } };
-          this.router.navigate(['/home'], navigationExtras);
+          if (userData.categoria === 1) {
+            this.router.navigate(['/home'], navigationExtras);
+          } else if (userData.categoria === 2) {
+            this.router.navigate(['/docente'], navigationExtras);
+          }
         });
       } else {
         // No hay datos almacenados, el usuario no ha iniciado sesión
@@ -60,7 +65,8 @@ export class LoginPage implements OnInit {
 
       if (usuario && usuario.contraseña === this.user.password) {
         this.user.idUsuario = usuario.idUsuario;
-        this.user.email = usuario.email; // Agrega esta línea para obtener el email
+        this.user.email = usuario.email;
+        this.user.categoria = usuario.categoria; 
 
         this.storage.set('usuariologin', this.user).then((data) => {
           let navigationExtras: NavigationExtras = { state: { user: this.user } };
@@ -72,7 +78,7 @@ export class LoginPage implements OnInit {
           }
         });
       } else {
-        console.log('Credenciales incorrectas');
+        alert('Credenciales incorrectas');
       }
     });
   }
