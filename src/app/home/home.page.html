@@ -1,36 +1,43 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>RegistrAPP-docente</ion-title>
+  <ion-toolbar >
+    <ion-title>RegistrAPP</ion-title>
     <ion-buttons slot="end" class="ion-no-padding">
-      <ion-button class="botoncerrar" mat-menu-item (click)="cerrarSesion()">
+      <ion-button class="botoncerrar"  (click)="cerrarSesion()">
         Cerrar sesión
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="center-content">
-  <div class="content-container">
-    <div class="titulo">
-      <h1>Bienvenido</h1>
-    </div>
-    <div *ngIf="user">
-      <p>Usuario: {{ user?.usuario }}</p>
-      <!-- Resto del contenido de la página home -->
-    </div>
-    <p>Cursos</p>
-    <div class="spinner-container">
-      <mat-spinner></mat-spinner>
-    </div>
-
-    <!-- Agrega los botones para escanear y detener el escaneo -->
-      <div class="barcode-actions">
-        <ion-button ion-button (click)="escanearCodigoQR()">Escanear Código QR h</ion-button>
-        
-        
-        
+<ion-content  >
+  <div class="fondo" >
+    <div class="content-container">
+      <div class="titulo">
+        <h1>Bienvenido</h1>
       </div>
-       <ion-button ion-button *ngIf="mostrarBotonConfirmar" (click)="confirmarAsistencia()">Confirmar Asistencia</ion-button>
+      
+      <ion-avatar class="avatar">
+        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar>
+    
+      <div *ngIf="user" class="user">
+        <p>Usuario: {{ user?.usuario }}</p>
+        <!-- Resto del contenido de la página home -->
+      </div>
+      
+      
+
+      <!-- Agrega los botones para escanear y detener el escaneo -->
+        <div class="barcode-actions" class="boton">
+          <ion-button ion-button (click)="escanearCodigoQR()">Escanear Código QR h</ion-button>
+          
+          
+          
+        </div>
+        <ion-button ion-button *ngIf="mostrarBotonConfirmar" (click)="confirmarAsistencia()">Confirmar Asistencia</ion-button>
+
+        
     </div>
+  </div>
   
 </ion-content>

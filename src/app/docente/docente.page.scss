@@ -24,7 +24,31 @@ body {
     font-weight: bold;
   }
 
-  .botoncerrar{
-    
-  }
+.usuario{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+  .contenedor-asig{
+    li{
+      list-style: none;
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p{
+      width: 600px;
+    }
+    .titulocard{
+      justify-content: center;
+      align-items: center;
+      display: flex;
+    }
+    .botonqr{
+      justify-content: center;
+      
+      display: flex;
+    }
+ 
+  }

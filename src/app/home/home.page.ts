@@ -14,7 +14,7 @@ export class HomePage implements OnInit {
   state: any;
   mostrarBotonConfirmar: boolean = false;
   result: any | ScanResult;
-
+  
   constructor(
     private activeroute: ActivatedRoute,
     private router: Router,
@@ -177,4 +177,5 @@ mostrarInformacionEscaneo(informacionEscaneo: { usuario: string, fecha: string, 
   
     return mailtoLink;
   }
+
 }
