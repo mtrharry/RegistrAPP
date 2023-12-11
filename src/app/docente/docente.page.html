@@ -1,45 +1,49 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title> RegistrAPP-docente
-    <ion-button  class="botoncerrar" (click)="cerrarSesion()">Cerrar sesion</ion-button>
-  </ion-title>
-  </ion-toolbar>
+  <ion-toolbar class="toolbar-cerrar">
+    <ion-title>RegistrAPP-docente <ion-icon name="log-in-outline" class="icono-grande" (click)="cerrarSesion()"></ion-icon></ion-title>
+    
+ </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="usuario">
-    <ion-avatar class="avatar">
-      <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-    </ion-avatar> 
-    <div *ngIf="user"> 
+  <div class="contenedordoc">
+    <div class="usuario">
+      <ion-avatar class="avatar">
+        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar> 
       
+      
+    </div>
+    
+    <div *ngIf="user"> 
+        
       <h3 class="user">Bienvenido: {{ user?.usuario }}</h3>
       <!-- Resto del contenido de la página home -->
     </div>
-  </div>
-  <div *ngIf="myAngularxQrCode">
-    <qrcode [qrdata]="myAngularxQrCode" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
-  </div>
+    <div *ngIf="myAngularxQrCode">
+      <qrcode [qrdata]="myAngularxQrCode" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+    </div>
 
-  <h2 class="titulo">Asignaturas Asociadas</h2>
-  <div class="contenedor-asig">
-    <ul>
-      <li *ngFor="let asignatura of asignaturas" >
-        <ion-card>
-          <ion-card-title >
-            <div *ngIf="asignaturas.length > 0">
-              <br>
-              <h2 class="titulocard">{{ asignatura.nombre }}</h2>
-              
-            </div>
-            </ion-card-title>
-            <ion-card-content>
-         <p>Sigla: {{ asignatura.sigla }}</p> <p>Seccion: {{ asignatura.seccion }} </p> 
-        <ion-button class="botonqr" (click)="generarQR(asignatura)">Generar QR</ion-button>
-      </ion-card-content>
-    </ion-card>
-      </li>
-    </ul>
+    <h2 class="titulo">Asignaturas Asociadas</h2>
+    <div class="contenedor-asig">
+      <ul>
+        <li *ngFor="let asignatura of asignaturas" >
+          <ion-card>
+            <ion-card-title >
+              <div *ngIf="asignaturas.length > 0">
+                
+                <h2 class="titulocard">{{ asignatura.nombre }}</h2>
+                
+              </div>
+              </ion-card-title>
+              <ion-card-content>
+          <p>Sigla: {{ asignatura.sigla }}</p> <p>Seccion: {{ asignatura.seccion }} </p> 
+          <ion-button class="botonqr" (click)="generarQR(asignatura)">Generar QR</ion-button>
+        </ion-card-content>
+      </ion-card>
+        </li>
+      </ul>
+    </div>
   </div>
 
 

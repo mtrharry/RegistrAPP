@@ -1,3 +1,4 @@
+
 .center-content {
   
   display: flex;
@@ -7,6 +8,13 @@
 ion-content{
 
   --ion-background-color:#111D12;
+}
+.contenedordoc{
+  display: 	flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 10em;
 }
 
 .center-content {

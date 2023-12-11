@@ -4,8 +4,10 @@ body {
     padding: 0;
     box-sizing: border-box;
   }
-
- 
+  
+  .icono-grande {
+    font-size: 2em; /* Ajusta el tamaño según tus necesidades */
+}
   .encabezado {
     border: 1px solid #ccc;
     padding: 10px;
@@ -28,17 +30,63 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  top: 2em;
+}
+.contenedordoc{
+  margin: auto;
+  border: 1em;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 2em;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(29, 25, 25, 0.75);
+  border-radius: 30px;
+  width: 70%;
+}
+.user{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 3em;
+  position: relative;
+  color: black;
 }
 
+.titulo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 2em;
+  position: relative;
+}
+
+ion-content{
+
+  --ion-background-color:hsl(183, 26%, 86%);
+}
+
+
   .contenedor-asig{
+    ul{
+      width: 1200px;
+      margin: auto;
+      left: -15px;
+      position: relative;
+    }
     li{
       list-style: none;
+      width: 100%;
     }
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: auto;
+    width: 100%;
     p{
-      width: 600px;
+      width: 100%;
+      
     }
     .titulocard{
       justify-content: center;
@@ -50,5 +98,5 @@ body {
       
       display: flex;
     }
- 
+
   }

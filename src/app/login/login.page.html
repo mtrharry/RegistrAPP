@@ -6,40 +6,33 @@
 
 <ion-content class="central">
   <div class="content-container">
-  
-  
-    
-    
+
     <h1 class="Bienvenido">Login</h1>
-    
+
     <!-- input de usuario -->
-    <div class="input"> 
+    <div class="input">
       <ion-item class="inputuser">
-        <!-- guardar variable user en parametro -->
-        <ion-input type="text" [(ngModel)]="user.usuario"
-            labelPlacement="floating" 
-            value="" placeholder="Ingrese usuario" requiered>
-            <div slot="label">Usuario <ion-text></ion-text></div>
-    
-      <!-- input de contraseña -->   
+        <ion-input type="text" [(ngModel)]="user.usuario" labelPlacement="floating" placeholder="Ingrese usuario" required>
+          <div slot="label">Usuario <ion-text></ion-text></div>
         </ion-input>
       </ion-item>
+
+      <!-- input de contraseña -->
       <ion-item class="inputcontra">
-        <!-- guardar variable password en parametro -->
-        <ion-input type="password" [(ngModel)]="user.password"
-        labelPlacement="floating"  
-        placeholder="Ingrese contraseña" requiered>
+        <ion-input type="password" [(ngModel)]="user.password" labelPlacement="floating" placeholder="Ingrese contraseña" required>
           <div slot="label">Contraseña <ion-text></ion-text></div>
         </ion-input>
       </ion-item>
-      
-    </div>    
-    
-  <!-- botones -->
-   <ion-button class="btingrar" (click)="goToHome()">Ingresar</ion-button>
-    <ion-button class="btolvide" (click)="goToRecuperar()">Olvide mi contraseña</ion-button>
-    
-    
+    </div>
+
+    <!-- botones con mejoras de UX -->
+    <ion-button class="btingrar" (click)="Validacion()" [disabled]="!user.usuario || !user.password">
+      Ingresar
+    </ion-button>
+
+    <ion-button class="btolvide" (click)="goToRecuperar()">
+      Olvidé mi contraseña
+    </ion-button>
 
   </div>
 </ion-content>

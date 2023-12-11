@@ -25,6 +25,7 @@ const routes: Routes = [
   },
   {
     path: 'docente',
+    canActivate:[AccessGuard],
     loadChildren: () => import('./docente/docente.module').then( m => m.DocentePageModule)
   },
 
