@@ -4,15 +4,27 @@ body {
     padding: 0;
     box-sizing: border-box;
   }
-  
-  .icono-grande {
-    font-size: 2em; /* Ajusta el tamaño según tus necesidades */
+.icono{
+  display: flex;
+    justify-content: end;
+    width: 10%;
+    margin: auto;
+    position: absolute;
+    left: 80%;
+}  
+.regis{
+  width: 80%;
 }
-  .encabezado {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 20px;
-  }
+.qr{
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+
+}
+.toolbar-title{
+  width: 80%;
+}
+ 
 
   .encabezado ul {
     list-style-type: none;

@@ -7,11 +7,11 @@ import { IonicModule } from '@ionic/angular';
 import { DocentePageRoutingModule } from './docente-routing.module';
 
 import { DocentePage } from './docente.page';
-
+import { MatDialogModule } from '@angular/material/dialog';
 import { QRCodeModule } from 'angularx-qrcode'
 
 @NgModule({
-  imports: [QRCodeModule,
+  imports: [MatDialogModule,QRCodeModule,
     CommonModule,
     FormsModule,
     IonicModule,

@@ -1,6 +1,12 @@
 <ion-header [translucent]="true">
-  <ion-toolbar class="toolbar-cerrar">
-    <ion-title>RegistrAPP-docente <ion-icon name="log-in-outline" class="icono-grande" (click)="cerrarSesion()"></ion-icon></ion-title>
+  <ion-toolbar class="encabezado">
+    <div class="tiutlo" >
+      <div class="icono">
+        <ion-icon name="log-in-outline" class="icono-grande" (click)="cerrarSesion()" style="height: 25px; width: 60px;"></ion-icon>
+      </div>
+    <ion-title class="regis">RegistrAPP-docente</ion-title>
+    
+    </div>
     
  </ion-toolbar>
 </ion-header>
@@ -20,7 +26,7 @@
       <h3 class="user">Bienvenido: {{ user?.usuario }}</h3>
       <!-- Resto del contenido de la página home -->
     </div>
-    <div *ngIf="myAngularxQrCode">
+    <div *ngIf="myAngularxQrCode" class="qr">
       <qrcode [qrdata]="myAngularxQrCode" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
     </div>
 
